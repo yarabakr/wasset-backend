@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import mysql from 'mysql2';
 import nodemailer from 'nodemailer';
+require("dotenv").config();
 
 
 const app = express();
