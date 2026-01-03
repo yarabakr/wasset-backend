@@ -3,6 +3,7 @@ import cors from 'cors';
 import mysql from 'mysql2';
 import nodemailer from 'nodemailer';
 require("dotenv").config();
+const mysql = require("mysql2");
 
 
 const app = express();
@@ -11,13 +12,20 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static('public'));
 
+
+DB_HOST=mysql.railway.internal
+DB_USER=root
+DB_PASSWORD=UvueqYDAyyUnhEFXQZtUISPdnzKdgfzN
+DB_NAME=railway
+DB_PORT=3306
+
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
 });
-
 db.connect((err) => {
   if (err) console.error('MySQL connect error:', err);
   else console.log('MySQL connected');
